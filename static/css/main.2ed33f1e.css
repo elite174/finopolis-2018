@@ -1,0 +1,260 @@
+.login{
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    color: var(--black);
+}
+
+.logo{
+    background-image: url(https://static2.tinkoff.ru/portal/tinkoffbank-general-logo/tinkoff-bank-general-logo-7.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 150px;
+    background-size: contain;
+    margin-bottom: 30px;
+}
+
+.service-name{
+    font-weight: 600;
+    font-size: 18px;
+}
+.input-container{
+    width: 300px;
+    padding: 15px;
+    background-color: var(--background-light);
+    text-align: center;
+}
+
+.input-field{
+    padding: 10px 0;
+    text-align: initial;
+}
+
+label{
+    font-size: 14px;
+}
+
+.input{
+    border-radius: 3px;
+    padding: 2px;
+    width: 100%;
+    outline: none;
+    -webkit-box-shadow: 0;
+            box-shadow: 0;
+    border: 1px solid var(--black);
+    padding: 5px;
+}
+.input-button{
+    color: var(--black);
+    padding: 10px 40px;
+    margin: auto;
+    background-color: var(--background);
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+    background-color: var(--primary);
+    border: none;
+    display: block;
+}
+
+.input-error{
+    color: red;
+    font-size: 12px;
+}.dashboard{
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+}
+
+.content{
+    width: 100%;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+}
+.menu{
+    width: 200px;
+    height: 100%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    position: relative;
+    background-color: var(--background);
+    color: var(--black);
+}
+
+.menu-item{
+    height: 45px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--text-light);
+    -webkit-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 250ms;
+         -o-transition-duration: 250ms;
+            transition-duration: 250ms;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.menu-item:hover{
+    color:var(--black);
+}
+
+
+.menu-item.active{
+    color: var(--black);
+    font-weight: 500;
+}
+
+.menu-item.bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--black);
+}
+
+.menu-profile{
+    height: 60px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: center;
+        align-items: center;
+    border-bottom: 1px solid var(--background-light);
+    width: 100%;
+    background-color: var(--primary);
+}
+
+.item-name{
+    padding-left: 5px;
+}
+
+.material-icons{
+    font-size: 18px;
+}
+.profile-photo{
+    background-image: url(https://icon2.kisspng.com/20180531/jjj/kisspng-avatar-computer-icons-logo-photographer-5b102d1e2df482.0451169615277867821882.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    background-color: var(--primary);
+}
+
+.profile-name{
+    width: 100%;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.name{
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    overflow: hidden;
+}.startups{
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+
+.filter{
+    height: 60px;
+    background-color: var(--background-light);
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+}
+
+.startups-list{
+    height: 100%;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    -ms-flex-pack: center;
+        justify-content: center;
+    overflow-y: scroll;
+    padding: 15px;
+}
+
+.card{
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    -webkit-transition-property: -webkit-transform, -webkit-box-shadow;
+    transition-property: -webkit-transform, -webkit-box-shadow;
+    -o-transition-property: transform, box-shadow;
+    transition-property: transform, box-shadow;
+    transition-property: transform, box-shadow, -webkit-transform, -webkit-box-shadow;
+    -webkit-transition-duration: 250ms;
+         -o-transition-duration: 250ms;
+            transition-duration: 250ms;
+    cursor: pointer;
+    justify-self: center;
+    -ms-flex-item-align: start;
+        align-self: start;
+    height: 300px;
+    width: 240px;
+}
+
+.card:hover{
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    -webkit-box-shadow: 0 10px 25px var(--text-light);
+            box-shadow: 0 10px 25px var(--text-light);
+}* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root{
+  --primary: #ffdd2d;
+  --black: #333333;
+  --background:#fafafa;
+  --text-light: #9299a2;
+  --secondary: #d8dadd;
+  --background-light: #f6f7f8;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Segoe UI", "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+}
+
+#app{
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=main.2ed33f1e.css.map*/
