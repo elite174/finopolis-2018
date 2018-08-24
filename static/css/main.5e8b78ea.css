@@ -1,0 +1,118 @@
+.login{
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.input-container{
+    width: 300px;
+    padding: 15px;
+}
+
+.input-field{
+    padding: 10px 0;
+}
+
+.input{
+    border-radius: 4px;
+    padding: 2px;
+    width: 100%;
+    outline: none;
+}
+.input-button{
+    border: 2px solid black;
+    padding: 3px 5px;
+    margin-right: 5px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+}
+
+.input-error{
+    color: red;
+}.dashboard{
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+}
+
+.menu{
+    width: 200px;
+    height: 100%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    position: relative;
+    background-color: var(--background);
+    color: var(--black);
+}
+
+.menu-item{
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--text-light);
+    -webkit-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 250ms;
+         -o-transition-duration: 250ms;
+            transition-duration: 250ms;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.menu-item:hover{
+    color:var(--black);
+}
+
+.menu-item.active{
+    color: var(--black);
+    font-weight: 500;
+}
+
+.menu-item.bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+}* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root{
+  --primary: #ffdd2d;
+  --black: #333333;
+  --background:#fafafa;
+  --text-light: #9299a2;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+}
+
+#app{
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=main.5e8b78ea.css.map*/
