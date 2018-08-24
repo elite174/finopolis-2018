@@ -24,25 +24,27 @@ const Login = withRouter(class Login extends Component {
             this.props.history.push('/dashboard')
         } else {
             this.setState({
-                login: '',
-                password: '',
                 showError: true
             })
         }
     }
     render() {
         return <div className='login'>
+        <div className='logo'></div>
             <div className='input-container'>
+                <div> Добро пожаловать в <span className='service-name'>Tinkoff.CashInvest</span></div>
                 <div className="input-field">
-                    <label>Login</label>
+                    <label>Логин</label>
                     <input type="text" className='input' value={this.state.login} onInput={this.loginHandler}></input>
                 </div>
                 <div className="input-field">
-                    <label>Password</label>
-                    <input type="password" className='input' value={this.state.password} onInput={this.passwordHandler}></input>
+                    <label>Пароль</label>
+                    <input type="password" className='input' value={this.state.password}
+                        onInput={this.passwordHandler}
+                        onKeyDown={e => { if (e.key === 'Enter') { this.checkLogin(e) } }}></input>
                 </div>
-                <button className='input-button' onClick={this.checkLogin}>Login</button>
-                {this.state.showError && <span className='input-error'>The login is incorrect</span>}
+                <button className='input-button' onClick={this.checkLogin}>Войти</button>
+                {this.state.showError && <span className='input-error'>Неверное имя пользователя или пароль</span>}
             </div>
         </div>
     }
