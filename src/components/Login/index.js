@@ -35,7 +35,7 @@ const Login = withRouter(class Login extends Component {
             <div className='input-container'>
                 <div className="input-field">
                     <label>Login</label>
-                    <input type="text" className='input' value={this.state.value} onInput={this.loginHandler}></input>
+                    <input type="text" className='input' value={this.state.login} onInput={this.loginHandler}></input>
                 </div>
                 <div className="input-field">
                     <label>Password</label>
