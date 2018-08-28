@@ -14,7 +14,6 @@ export default class Startups extends Component {
         startup: null
     }
     componentDidMount() {
-        this.props.store.loadStartups()
     }
     handleChange = (e) => {
         this.setState({ filterValue: e.target.value })
@@ -30,19 +29,23 @@ export default class Startups extends Component {
 
     closeModal = () => this.setState({ showModal: false })
     render() {
-        let { store } = this.props
+        let { store, favorite } = this.props
+        let count = store.getByProfile(this.state.filterValue, favorite).length
         return <section className='startups'>
             <div className='filter'>
                 <span className='filter-profile'>Профиль компании:</span>
                 <select onChange={this.handleChange} value={this.state.filterValue}>
                     <option value=''>Все</option>
-                    {store.profiles.map(p => <option key={p} value={p}>{p}</option>)}
+                    {store.profiles(favorite).map(p => <option key={p} value={p}>{p}</option>)}
                 </select>
             </div>
-            <div className='startups-list'>
-                {store.getByProfile(this.state.filterValue).map(startup => {
-                    return <Card openModal={this.openModal} id={startup.id} startup={startup} />
-                })}
+            <div className={count !== 0 ? 'startups-list' : 'startups-list empty'} >
+                {
+                    store.getByProfile(this.state.filterValue, favorite).map(startup => {
+                        return <Card openModal={this.openModal} id={startup.id} startup={startup} />
+                    })
+                }
+                {count===0 && <span>Нет компаний для отображения</span>}
             </div>
             {this.state.showModal && <CompanyModal closeModal={this.closeModal} startup={this.state.startup} />}
         </section>

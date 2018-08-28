@@ -4,6 +4,26 @@ import { observer } from 'inferno-mobx';
 
 const Bonus = ({ startup }) => {
     return <div className='bonus'>
+        <section className='section'>
+            <p className='section-header'>Бонусы</p>
+            <hr className='hr' />
+            {startup.features.map(f => <div key={f.id} className='feature'>
+                <p className='bonus-name'>{f.name}
+                    <span className='span bonus-count'>{f.number} шт</span>
+                </p>
+                <p className='bonus-cost'>Стоимость: {f.cost} руб.</p>
+                <div className='progress-bar'>
+                    <div className='bar' style={{ width: `${Math.round(f.my_investment / f.cost * 100)}%` }}>
+                    </div>
+                </div>
+                <p className='bonus-remain'>
+                    <span >Мои вложения:</span>
+                    <span className='span bold'>{f.my_investment} руб</span>
+                    <span className='span'>/</span>
+                    <span className='span bold'>{f.cost} руб.</span>
+                </p>
+            </div>)}
+        </section>
     </div>
 }
 
@@ -34,8 +54,14 @@ class ModalContent extends Component {
         return <div className='modal-content'>
             <div className='modal-header' style={{ backgroundImage: `url(${startup.logo})` }}>
                 <div className='header-wall'>
-                    <p className='modal-profile'>{startup.profile}</p>
-                    <p className='modal-name'>{startup.name}</p>
+                    <p className='modal-profile'>{startup.profile}
+                    </p>
+                    <p className='modal-name'>
+                        <span>{startup.name}</span>
+                        <span className={startup.liked ? 'like-button active' : 'like-button'} onClick={startup.setLike} >
+                            <i className='material-icons'>favorite</i>
+                            <span className='span'>{startup.liked ? startup.like + 1 : startup.like}</span>
+                        </span></p>
                 </div>
             </div>
             <div className='modal-info'>

@@ -11,6 +11,7 @@
   --text-blue: #74a3c7;
   --secondary: #d8dadd;
   --background-light: #f6f7f8;
+  --red: rgb(247, 22, 71);
 }
 body {
   margin: 0;
@@ -30,4 +31,20 @@ body {
   top: 0;
   left: 0;
   z-index: 1000;
+}
+
+.bold{
+  font-weight: 500;
+}
+
+.bolder{
+  font-weight: 600;
+}
+
+.small{
+  font-size: 12px;
+}
+
+.normal{
+  font-size: 14px;
 }

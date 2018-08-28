@@ -22,6 +22,19 @@ export default class Startup {
     features = []
 
     @observable
+    liked = false
+
+    @action.bound
+    setFavorite() {
+        this.favorite = !this.favorite
+    }
+
+    @action.bound
+    setLike() {
+        this.liked = !this.liked
+    }
+
+    @observable
     like = 0
 
     @observable

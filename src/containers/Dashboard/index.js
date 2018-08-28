@@ -9,7 +9,7 @@ const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends 
         super(props)
         if (localStorage.getItem('user') !== 'true') {
             this.props.history.push('/')
-        }  
+        }
     }
     state = {
         active: 'startup'
@@ -24,15 +24,17 @@ const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends 
     }
     componentDidMount() {
         this.props.store.user.loadData()
+        this.props.store.loadStartups()
     }
     render() {
+        let { store } = this.props
         return <div className='dashboard'>
             <div className='menu'>
                 <div className='menu-profile'>
-                    <div className='profile-photo'></div>
+                    <div className='profile-photo' style={{ backgroundImage: `url(${store.user.photo})` }}></div>
                     <div className='profile-name'>
-                        <div className='name'>Вася</div>
-                        <div className='name'>Пупкин</div>
+                        <div className='name'>{store.user.firstName}</div>
+                        <div className='name'>{store.user.lastName}</div>
                     </div>
                 </div>
                 <div className={this.state.active === 'startup' ? 'menu-item active' : 'menu-item'}

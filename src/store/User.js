@@ -2,13 +2,17 @@ import { observable, action, flow } from "mobx";
 import { PATH } from "../api";
 
 export default class User {
-    @observable
-    name = ''
+
+    firstName = 'Алексей'
+
+    lastName = 'Смирнов'
 
     id = -1
 
     @observable
-    balance = 0
+    balance = 15480
+
+    photo = "https://pp.userapi.com/c540101/v540101906/17314/306UIYtxDAA.jpg"
 
     @action.bound
     loadData = flow(function* () {

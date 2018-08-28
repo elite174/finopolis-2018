@@ -14,16 +14,19 @@ class Store {
         return this.startups.filter(s => s.favorite)
     }
 
-    @computed
-    get profiles() {
-        return Array.from(new Set(this.startups.map(s => s.profile))).sort((a, b) => a < b ? -1 : 1)
+    profiles(favorite) {
+        if (favorite) {
+            return Array.from(new Set(this.favorite.map(s => s.profile))).sort((a, b) => a < b ? -1 : 1)
+        } else {
+            return Array.from(new Set(this.startups.map(s => s.profile))).sort((a, b) => a < b ? -1 : 1)
+        }
     }
 
-    getByProfile(profile) {
+    getByProfile(profile, favorite) {
         if (profile === '') {
-            return this.startups
+            return favorite ? this.favorite : this.startups
         } else {
-            return this.startups.filter(s => s.profile === profile)
+            return favorite ? this.favorite.filter(s => s.profile === profile) : this.startups.filter(s => s.profile === profile)
         }
     }
 
