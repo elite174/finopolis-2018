@@ -1,0 +1,1 @@
+export const PATH = 'http://188.225.26.73:5000/api'

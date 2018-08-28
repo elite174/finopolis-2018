@@ -22,19 +22,21 @@
     padding: 15px;
 }
 
-.card{
-    border: 1px solid var(--secondary);
-    border-radius: 5px;
-    transition-property: transform, box-shadow;
-    transition-duration: 250ms;
-    cursor: pointer;
-    justify-self: center;
-    align-self: start;
-    height: 300px;
-    width: 240px;
+.filter{
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
 }
 
-.card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px var(--text-light);
+.filter-profile{
+    color: var(--text-blue);
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+select{
+    background-color: var(--background-light);
+    border: none;
+    outline: none;
+    text-decoration-style: solid;
 }

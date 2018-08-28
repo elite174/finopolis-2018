@@ -2,13 +2,14 @@ import { Component } from 'inferno'
 import './style.css'
 import { withRouter } from 'inferno-router';
 import Startups from '../../components/Startups';
+import { observer, inject } from 'inferno-mobx';
 
-const Dashboard = withRouter(class Dashboard extends Component {
+const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends Component {
     constructor(props) {
         super(props)
         if (localStorage.getItem('user') !== 'true') {
             this.props.history.push('/')
-        }
+        }  
     }
     state = {
         active: 'startup'
@@ -20,6 +21,9 @@ const Dashboard = withRouter(class Dashboard extends Component {
     logout = () => {
         localStorage.removeItem('user')
         this.props.history.push('/')
+    }
+    componentDidMount() {
+        this.props.store.user.loadData()
     }
     render() {
         return <div className='dashboard'>
@@ -59,6 +63,6 @@ const Dashboard = withRouter(class Dashboard extends Component {
             </div>
         </div>
     }
-})
+})))
 
 export default Dashboard
