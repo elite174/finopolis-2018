@@ -16,11 +16,11 @@ export default class Card extends Component {
                 <p className='c-desc'>{startup.short_desc}</p>
             </div>
             <div className='c-footer'>
-                <div className='show-button'>
+                <div className='show-button' onClick={() => this.props.openModal(startup)}>
                     <i className='material-icons'>info</i>
                     <span className='span'>Просмотреть</span></div>
                 <div className='favorite-button'>
-                <i className='material-icons'>star</i>
+                    <i className='material-icons'>star</i>
                     <span className='span'>В избранное</span></div>
             </div>
         </div>

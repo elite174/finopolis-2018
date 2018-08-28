@@ -2,13 +2,16 @@ import { Component, render } from 'inferno'
 import { observer, inject } from 'inferno-mobx';
 import './style.css'
 import Card from '../Card';
+import CompanyModal from '../CompanyModal';
 
 @inject('store')
 @observer
 export default class Startups extends Component {
 
     state = {
-        filterValue: ''
+        filterValue: '',
+        showModal: false,
+        startup: null
     }
     componentDidMount() {
         this.props.store.loadStartups()
@@ -16,6 +19,16 @@ export default class Startups extends Component {
     handleChange = (e) => {
         this.setState({ filterValue: e.target.value })
     }
+
+    openModal = (startup) => {
+        this.setState({
+            showModal: true,
+            startup: startup
+        })
+        console.log('open')
+    }
+
+    closeModal = () => this.setState({ showModal: false })
     render() {
         let { store } = this.props
         return <section className='startups'>
@@ -28,9 +41,10 @@ export default class Startups extends Component {
             </div>
             <div className='startups-list'>
                 {store.getByProfile(this.state.filterValue).map(startup => {
-                    return <Card id={startup.id} startup={startup} />
+                    return <Card openModal={this.openModal} id={startup.id} startup={startup} />
                 })}
             </div>
+            {this.state.showModal && <CompanyModal closeModal={this.closeModal} startup={this.state.startup} />}
         </section>
     }
 }
