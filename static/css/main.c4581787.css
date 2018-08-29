@@ -387,6 +387,84 @@ select{
             animation-duration: 1000ms;
 }
 
+.notification-list{
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
+    top: 60px;
+}
+
+.notification{
+    width: 300px;
+    padding-right: 10px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: center;
+        align-items: center;
+    font-size: 13px;
+    color: var(--background);
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+    line-height: 18px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    pointer-events: none;
+    -webkit-animation-name: notification;
+            animation-name: notification;
+    margin-bottom: 15px;
+    -webkit-animation-duration: 500ms;
+            animation-duration: 500ms;
+}
+
+@-webkit-keyframes notification{
+    from{
+        -webkit-transform: translateX(400px);
+                transform: translateX(400px);
+    }
+    to{
+        -webkit-transform: translateX(0px);
+                transform: translateX(0px);
+    }
+}
+
+@keyframes notification{
+    from{
+        -webkit-transform: translateX(400px);
+                transform: translateX(400px);
+    }
+    to{
+        -webkit-transform: translateX(0px);
+                transform: translateX(0px);
+    }
+}
+
+.icon{
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    width: 60px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    font-size: 28px;
+    color:var(--primary);
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+.n-text{
+    height: 100%;
+    width: 100%;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+}
+.n-msg{
+    margin: 0;
+}
+
 @-webkit-keyframes appear{
     from{
         -webkit-transform: translateY(30px);
@@ -703,7 +781,9 @@ select{
 
 .like-button.active{
     color: var(--red);
-}.payment{
+}
+
+.payment{
     padding: 15px;
 }
 
@@ -732,14 +812,23 @@ select{
     color: var(--black);
     margin-bottom: 10px;
     cursor: pointer;
-    -webkit-transition-property: -webkit-transform;
-    transition-property: -webkit-transform;
-    -o-transition-property: transform;
-    transition-property: transform;
-    transition-property: transform, -webkit-transform;
+    -webkit-transition-property: background-color, -webkit-transform;
+    transition-property: background-color, -webkit-transform;
+    -o-transition-property: transform, background-color;
+    transition-property: transform, background-color;
+    transition-property: transform, background-color, -webkit-transform;
     -webkit-transition-duration: 250ms;
          -o-transition-duration: 250ms;
             transition-duration: 250ms;
+}
+
+.pay-button.a{
+    background-color: var(--red);
+    color: var(--background);
+}
+
+.inv{
+    background-color: var(--secondary);
 }
 
 .pay-button:hover{
@@ -958,4 +1047,4 @@ body {
   font-size: 14px;
 }
 
-/*# sourceMappingURL=main.2be2ddad.css.map*/
+/*# sourceMappingURL=main.c4581787.css.map*/
