@@ -1,7 +1,8 @@
 import { Component, createPortal } from 'inferno'
 import './style.css'
-import { observer } from 'inferno-mobx';
+import { observer, inject } from 'inferno-mobx';
 import Payment from '../Payment';
+
 
 const Bonus = observer(({ startup }) => {
     return <div className='bonus'>
@@ -42,6 +43,23 @@ const Info = ({ startup }) => {
         </section>
     </div>
 }
+
+const Notification = ({ companyName, bonus }) => {
+    return <div className='notification'>
+        <i className='material-icons icon'>star</i>
+        <div className='n-text'>
+            <p className='n-msg'>Поздравляем!</p>
+            <p className='n-msg'>
+                <span>Вы только что получили</span>
+                <span className='span bold'>{bonus}</span>
+                <span className='span'>от</span>
+                <span className='span bold'>{companyName}</span>!
+            </p>
+        </div>
+    </div>
+}
+
+@inject('store')
 @observer
 class ModalContent extends Component {
     state = {
@@ -50,8 +68,11 @@ class ModalContent extends Component {
 
     show = show => this.setState({ show })
     render() {
-        let { startup } = this.props
+        let { startup, store } = this.props
         return <div className='modal-content'>
+            <div className='notification-list'>
+                {store.notifications.map(n => <Notification key={n.id} companyName={n.companyName} bonus={n.bonus} />)}
+            </div>
             <div className='modal-header' style={{ backgroundImage: `url(${startup.logo})` }}>
                 <div className='header-wall'>
                     <p className='modal-profile'>{startup.profile}

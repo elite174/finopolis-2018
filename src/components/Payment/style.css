@@ -20,8 +20,17 @@
     color: var(--black);
     margin-bottom: 10px;
     cursor: pointer;
-    transition-property: transform;
+    transition-property: transform, background-color;
     transition-duration: 250ms;
+}
+
+.pay-button.a{
+    background-color: var(--red);
+    color: var(--background);
+}
+
+.inv{
+    background-color: var(--secondary);
 }
 
 .pay-button:hover{

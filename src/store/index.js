@@ -3,10 +3,19 @@ import User from "./User";
 import { PATH } from "../api";
 import Startup from "./Startup";
 import { types, getSnapshot, applySnapshot, flow } from 'mobx-state-tree'
+import { action } from "mobx";
+
+
+const Notification = types.model('Notification', {
+    id: types.number,
+    bonus: types.string,
+    companyName: types.string
+})
 
 const Store = types.model('Store', {
     startups: types.array(Startup),
-    user: User
+    user: User,
+    notifications: types.optional(types.array(Notification), [])
 }).views(self => {
     return {
         get favorite() {
@@ -34,6 +43,17 @@ const Store = types.model('Store', {
 
     }
 }).actions(self => ({
+    pushNotification(id, companyName, bonus) {
+        self.notifications.push(Notification.create({
+            companyName: companyName,
+            id,
+            bonus
+        }))
+        setTimeout(() => self.removeNotification(id), 5000)
+    },
+    removeNotification(id) {
+        self.notifications = self.notifications.filter(n => n.id !== id)
+    },
     invest(companyId, money) {
         let c = self.getById(companyId), diff, rest
         self.user.pay(money)
@@ -45,6 +65,7 @@ const Store = types.model('Store', {
                     break
                 } else {
                     f.pay(diff)
+                    self.pushNotification(f.id, c.name, f.name)
                     money -= diff
                 }
             }
@@ -74,9 +95,6 @@ const Store = types.model('Store', {
             console.log(err)
         }
     }),
-    afterCreate() {
-        self.load()
-    },
     save() {
         let s = getSnapshot(self)
         localStorage.setItem('date', JSON.stringify(s))

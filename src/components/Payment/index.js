@@ -8,7 +8,7 @@ import { inject, observer } from 'inferno-mobx';
 export default class Payment extends Component {
     state = {
         showForm: false,
-        error: false,       
+        error: false,
         value: 0
     }
     show = () => this.setState({ showForm: true })
@@ -22,7 +22,7 @@ export default class Payment extends Component {
     }
     invest = () => {
         let money = Number(this.state.value)
-        if ( money > this.props.store.user.balance) {
+        if (money > this.props.store.user.balance) {
             this.setState({
                 error: true,
                 value: 0
@@ -36,10 +36,10 @@ export default class Payment extends Component {
         let { store, startup } = this.props
         return <div className='payment'>
             {!this.state.showForm && <div className='payment-options'>
-                <div className='pay-button' onClick={this.subscribe}>
+                <div className={startup.id === store.user.companyId ? 'pay-button a' : 'pay-button'} onClick={this.subscribe}>
                     {startup.id === store.user.companyId ? 'Отписаться' : 'Подписаться'}
                 </div>
-                <div className='pay-button' onClick={this.show}>Инвестировать</div>
+                <div className='pay-button inv' onClick={this.show}>Инвестировать</div>
             </div>}
             {this.state.showForm && <div className='payment-details'>
                 <p className='pay-info'>У вас на счету {store.user.balance} руб.</p>

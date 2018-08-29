@@ -25,7 +25,6 @@ const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends 
         this.props.history.push('/')
     }
     componentDidMount() {
-        this.props.store.user.loadData()
         this.props.store.loadStartups()
     }
     render() {
