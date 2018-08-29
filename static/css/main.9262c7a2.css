@@ -995,6 +995,54 @@ input[type="number"]{
 #chart{
     width: 90%;
     height: 80%;
+}.transaction-list{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 30px 60px 0;
+}
+
+.transaction{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -webkit-transition-property: background-color;
+    -o-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: 250ms;
+         -o-transition-duration: 250ms;
+            transition-duration: 250ms;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    -ms-flex-align: center;
+        align-items: center;
+}
+
+.transaction:nth-child(2n+1){
+    background-color: var(--background);
+}
+
+.transaction:hover{
+    background-color: var(--background-light);
+}
+   
+.t-name{    
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.t-hash{
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.t-amount{
+    font-size: 18px;
+    font-weight: 500;
 }* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1047,4 +1095,4 @@ body {
   font-size: 14px;
 }
 
-/*# sourceMappingURL=main.c4581787.css.map*/
+/*# sourceMappingURL=main.9262c7a2.css.map*/
