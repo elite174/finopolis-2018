@@ -1,0 +1,80 @@
+.payment{
+    padding: 15px;
+}
+
+.payment-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pay-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: var(--black);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-property: transform;
+    transition-duration: 250ms;
+}
+
+.pay-button:hover{
+    transform: translateY(-2px);
+}
+
+.pay-info{
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+input[type="number"]{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 15px 5px 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.submit, .cancel{
+    color: var(--black);
+    border-radius: 5px;
+    background-color: var(--background);
+    transition-property: background-color;
+    transition-duration: 250ms;
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+}
+.submit{
+    border: 2px solid var(--primary);   
+}
+
+.submit:hover{
+    background-color: var(--primary);
+}
+
+.cancel{
+    border: 2px solid var(--secondary);
+}
+
+.cancel:hover{
+    background-color: var(--secondary);
+}

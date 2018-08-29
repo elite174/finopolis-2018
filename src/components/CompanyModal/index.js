@@ -1,8 +1,9 @@
 import { Component, createPortal } from 'inferno'
 import './style.css'
 import { observer } from 'inferno-mobx';
+import Payment from '../Payment';
 
-const Bonus = ({ startup }) => {
+const Bonus = observer(({ startup }) => {
     return <div className='bonus'>
         <section className='section'>
             <p className='section-header'>Бонусы</p>
@@ -25,7 +26,7 @@ const Bonus = ({ startup }) => {
             </div>)}
         </section>
     </div>
-}
+})
 
 const Info = ({ startup }) => {
     return <div className='info'>
@@ -40,7 +41,6 @@ const Info = ({ startup }) => {
             <iframe src={startup.video_link} frameBorder='none' />
         </section>
     </div>
-
 }
 @observer
 class ModalContent extends Component {
@@ -92,7 +92,7 @@ class ModalContent extends Component {
                             <span>{startup.start_date}</span>
                         </div>
                     </div>
-
+                    <Payment startup={startup} />
                 </div>
                 <div className='info-right'>
                     <menu className='info-panel'>

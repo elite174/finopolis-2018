@@ -3,6 +3,7 @@
     width: 100vw;
     height: 100vh;
     background-color: var(--background);
+    overflow: hidden;
 }
 
 .modal-content{
@@ -238,6 +239,8 @@
 .bar{
     background-color: var(--primary);
     height: 100%;
+    transition-property: width;
+    transition-duration: 250ms;
 }
 
 .value{

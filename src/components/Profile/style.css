@@ -1,0 +1,74 @@
+.user{
+    color: var(--black);
+    height: 100%;
+}
+
+.user-photo{
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 30px;
+}
+
+.user-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 105px;
+    background-color: var(--background);
+}
+
+.user-name{
+    font-size: 22px;
+    font-weight: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.user-info, .user-options{
+    padding: 30px 60px 0;
+}
+
+.money{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.money-balance, .withdraw-select{
+    margin: 0;
+    font-size: 20px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.money-caption{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.withdraw-select{
+    outline: none;
+    border: none;
+    background: white;
+}  
+
+.info-msg{
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.link{
+    color: var(--text-blue);
+    font-weight: 500;
+    cursor: pointer;
+}

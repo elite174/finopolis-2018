@@ -1,4 +1,6 @@
-export default class Feature {
+import { types } from "mobx-state-tree";
+
+/*export default class Feature {
     constructor(company, id, cost, my_investment, name, number) {
         this.company = company
         this.id = id
@@ -7,4 +9,18 @@ export default class Feature {
         this.name = name
         this.number = number
     }
-}
+}*/
+
+const Feature = types.model('Feature', {
+    id: types.number,
+    cost: types.number,
+    my_investment: types.number,
+    name: types.string,
+    number: types.number
+}).actions(self => ({
+    pay(money) {
+        self.my_investment += money
+    }
+}))
+
+export default Feature

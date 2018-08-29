@@ -3,6 +3,8 @@ import './style.css'
 import { withRouter } from 'inferno-router';
 import Startups from '../../components/Startups';
 import { observer, inject } from 'inferno-mobx';
+import Profile from '../../components/Profile';
+import Invest from '../../components/Invest';
 
 const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends Component {
     constructor(props) {
@@ -37,7 +39,7 @@ const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends 
                         <div className='name'>{store.user.lastName}</div>
                     </div>
                 </div>
-                <div className={this.state.active === 'startup' ? 'menu-item active' : 'menu-item'}
+                <div id='startups' className={this.state.active === 'startup' ? 'menu-item active' : 'menu-item'}
                     onClick={() => this.selectMenu('startup')}>
                     <i className="material-icons">apps</i>
                     <span className='item-name'>Стартапы</span></div>
@@ -60,8 +62,9 @@ const Dashboard = inject(['store'])(observer(withRouter(class Dashboard extends 
             </div>
             <div className='content'>
                 {this.state.active === 'startup' && <Startups />}
-                {this.state.active === 'invest' && <div>invest</div>}
+                {this.state.active === 'invest' && <Invest />}
                 {this.state.active === 'favorite' && <Startups favorite />}
+                {this.state.active === 'settings' && <Profile user={store.user} />}
             </div>
         </div>
     }
